@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
     
     @IBOutlet var pickImageButton: UIButton!
     let picker = UIImagePickerController()
@@ -39,6 +39,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.mainImageView.contentMode = .scaleAspectFit
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        
+        return mainImageView
     }
 }
 
